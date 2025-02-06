@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="./index.css" rel="stylesheet" type="text/css">
+    <script src="index.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+
+</head>
+
+<body class="body">
+    <div class="header">
+        <h1>Contact list</h1>
+        <button onclick="createNewContact()">+</button>
+    </div>
+    <form class="addContact" onsubmit="onSubmitNewContact(event)">
+        <input placeholder="name" id="name">
+        <input placeholder="email" id="email">
+        <button>Add</button>
+    </form>
+    <div class="contactsContainer" id="contactsContainer">
+
+    </div>
+</body>
+
+</html>

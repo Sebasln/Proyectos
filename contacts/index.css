@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.body {
+    width: 60%;
+    margin: auto;
+}
+
+.addContact {
+    border: 1px solid black;
+    margin-top: 1rem;
+    padding: 2rem;
+    display: none;
+}
+
+.contact {
+    border: 1px solid black;
+    margin-top: 1rem;
+    padding: 2rem;
+}
+
+.form{
+    display: none;
+}
+

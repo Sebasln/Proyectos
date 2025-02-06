@@ -1,0 +1,31 @@
+.hOne{
+    color: white;
+}
+
+.body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;  
+    position: relative;
+}
+
+.buttonsContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+
+.button{
+    background-color: rgb(240, 140, 156);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    border: 1px solid white;
+    color: white;
+    
+}

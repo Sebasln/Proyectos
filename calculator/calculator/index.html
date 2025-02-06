@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="index.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+
+<body>
+    <div id="textSpace" class="spaceText"> </div>
+
+    <div class="container">
+        <div class="button" onclick="onClickGenericBtn(event)">7</div>
+        <div class="button" onclick="onClickGenericBtn(event)">8</div>
+        <div class="button" onclick="onClickGenericBtn(event)">9</div>
+        <div class="button" onclick="onClickGenericBtn(event)">-</div>
+        <div class="button" onclick="onClickGenericBtn(event)">4</div>
+        <div class="button" onclick="onClickGenericBtn(event)">5</div>
+        <div class="button" onclick="onClickGenericBtn(event)">6</div>
+        <div class="button" onclick="onClickGenericBtn(event)">+</div>
+        <div class="button" onclick="onClickGenericBtn(event)">1</div>
+        <div class="button" onclick="onClickGenericBtn(event)">2</div>
+        <div class="button" onclick="onClickGenericBtn(event)">3</div>
+        <div class="button" onclick="onClickGenericBtn(event)">*</div>
+        <div class="button" onclick="onClickGenericBtn(event)">=</div>
+        <div class="button" onclick="onClickGenericBtn(event)">/</div>
+        <div class="button" onclick="onClickGenericBtn(event)">C</div>
+
+    </div>
+
+    <style>
+        .button {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 6px 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            border-radius: 6px;
+            border: none;
+
+            background: #6E6D70;
+            box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+            color: #DFDEDF;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button:focus {
+            box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+            outline: 0;
+        }
+
+        .spaceText {
+            height: 100px;
+            width: 100px;
+        }
+
+
+        .container {
+
+            display: flex;
+            justify-content: center;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            border: 1px solid;
+            border-color: black;
+        }
+    </style>
+
+</body>
+
+</html>
