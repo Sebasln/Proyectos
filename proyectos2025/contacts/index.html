@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,24 @@
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div class="mainContainer">
+        <div class="contactsContainer">
+            <h1>Contacts</h1>
+            <button class="addContactButton">Add Contact</button>
+        </div>
+        <div class="contactFormContainer">
+            <div class="contactForm">
+                <h2>Create Contact</h2>
+                <input placeholder="Name" type="text" name="name" id="name">
+                <input placeholder="123@gmail.com" type="email" name="email" id="email">
+                <button class="saveButton">Save</button>
+            </div>
+        </div>
+        <div class="contactsListContainer" id="contactsListContainer">
+        </div>
+    </div>
 </body>
+
 </html>

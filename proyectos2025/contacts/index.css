@@ -1,0 +1,140 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh;
+    padding: 2rem;
+    gap: 1rem;
+    align-items: center;
+    min-height: 100vh
+}
+
+body {
+    background-color: rgb(35, 35, 35);
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    color: white;
+    margin: 0;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    box-shadow: black;
+}
+
+.contactsContainer{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.contactFormContainer{
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    max-width: 600px;
+}
+
+.contactFormContainer.visible {
+    visibility: visible;
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    background-color: #3a3a3a;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.contactsListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contactForm input {
+    padding: 0.8rem;
+    border: 1px solid #555;
+    background-color: #2f2f2f;
+    color: white;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.contactForm input:focus {
+    outline: none;
+    border-color: #7b68ee;
+}
+
+/* Solución para el autocompletado del navegador */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: white; /* Cambia el color del texto */
+    -webkit-box-shadow: 0 0 0px 1000px #2f2f2f inset; /* Truco para cambiar el fondo */
+    transition: background-color 5000s ease-in-out 0s; /* Evita que el navegador lo sobreescriba */
+    caret-color: white; /* Asegura que el cursor de texto sea visible */
+    border: 1px solid #555;
+}
+
+
+.addContactButton, .saveButton, .editButton, .deleteButton {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.addContactButton {
+    background-color: #7b68ee;
+}
+
+.addContactButton:hover {
+    background-color: #6a5acd;
+}
+
+.saveButton {
+    background-color: #28a745;
+}
+
+.saveButton:hover {
+    background-color: #218838;
+}
+
+.editButton {
+    background-color: #ffda33;
+}
+
+.editButton:hover {
+    background-color: #b19c12;
+}
+
+.deleteButton {
+    background-color: #dc3545;
+}
+
+.deleteButton:hover {
+    background-color: #7b0d18;
+}
