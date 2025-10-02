@@ -1,14 +1,11 @@
-// Usamos DOMContentLoaded que es más eficiente, se ejecuta en cuanto el HTML está listo.
 document.addEventListener('DOMContentLoaded', function () {
 
-    // 1. Obtenemos una referencia al ELEMENTO del display, no a su texto.
     const display = document.getElementById("display");
-    // 2. Seleccionamos el contenedor de la calculadora para escuchar los clics.
     const calculator = document.querySelector('.calculator');
-    let num1 = null, num2 = null, num2ToParse = '', operator = null;
-    // 3. Usamos un solo event listener en el contenedor.
+    let num1 = null, operator = null, shouldResetDisplay = false;
+
     calculator.addEventListener('click', function (event) {
-        // Nos aseguramos de que el clic fue en un BOTÓN.
+
         if (!event.target.matches('button')) {
             return;
         }
@@ -17,54 +14,66 @@ document.addEventListener('DOMContentLoaded', function () {
         const buttonValue = button.innerText;
         const currentDisplayValue = display.innerText;
 
-        if (button.classList.contains('equal')) {
-            num2 = parseFloat(num2ToParse);
-            switch (operator) {
-                case '+':
-                    display.innerText = num1 + num2;
-                    break;
-                case '-':
-                    display.innerText = num1 - num2;
-                    break;
-                case '*':
-                    display.innerText = num1 * num2;
-                    break;
-                case '/':
-                    display.innerText = num1 / num2;
-                    break;
-            }
-            num1 = null;
-            num2 = null;
-            num2ToParse = '';
-            operator = null;
-            return;
-        }
-
-        if (button.classList.contains('operator') && num1 == null) {
-            num1 = parseFloat(currentDisplayValue);
-            display.innerText += buttonValue;
-
-            operator = buttonValue;
-            return;
-        }
-
-        // Lógica para el botón de limpiar (Clear)
-        if (button.classList.contains('clear')) {
-            display.innerText = '0';
-        }
-
-        // Lógica para los botones de números
         if (button.classList.contains('number')) {
-            if (num1 !== null) {
-                num2ToParse += buttonValue;
-            }
-
-            if (currentDisplayValue === '0') {
+            if (currentDisplayValue === '0' || shouldResetDisplay) {
                 display.innerText = buttonValue;
+                shouldResetDisplay = false;
             } else {
-                // Si no, añadimos el nuevo número.
+                // Evitar múltiples puntos decimales
+                if (buttonValue === '.' && currentDisplayValue.includes('.')) {
+                    return;
+                }
                 display.innerText += buttonValue;
             }
         }
+
+        if (button.classList.contains('operator')) {
+            if (operator && !shouldResetDisplay) {
+                const num2 = parseFloat(currentDisplayValue);
+                num1 = calculate(num1, operator, num2);
+                display.innerText = num1;
+            } else {
+                num1 = parseFloat(currentDisplayValue);
+            }
+
+            operator = buttonValue;
+            shouldResetDisplay = true;
+        }
+
+        if (button.classList.contains('delete')) {
+            if (display.innerText.length === 1 || shouldResetDisplay) {
+                display.innerText = '0';
+                shouldResetDisplay = false;
+            } else {
+                display.innerText = display.innerText.slice(0, -1).trim();
+            }
+        }
+
+        if (button.classList.contains('equal') && operator) {
+            if (shouldResetDisplay) return;
+            const num2 = parseFloat(currentDisplayValue);
+            const result = calculate(num1, operator, num2);
+            display.innerText = result;
+            num1 = result;
+            operator = null;
+            shouldResetDisplay = true;
+        }
+
+        if (button.classList.contains('clear')) {
+            display.innerText = '0';
+            num1 = null;
+            operator = null;
+            shouldResetDisplay = false;
+        }
     });
+
+    function calculate(n1, op, n2) {
+        switch (operator) {
+            case '+': return n1 + n2;
+            case '-': return n1 - n2;
+            case '*': return n1 * n2;
+            case '/': return n2 === 0 ? 'Error. Please Clear' : n1 / n2;
+            default: return n2;
+        }
+    }
 });
