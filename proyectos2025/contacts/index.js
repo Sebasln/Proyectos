@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (target.classList.contains("deleteButton")) {
             contact.remove();
-        }else if (target.classList.contains("editButton")) {
+        } else if (target.classList.contains("editButton")) {
 
             target.textContent = "Save";
             target.classList.add("saveButton");
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
             editNameInput.classList.toggle('hidden');
             editEmailInput.classList.toggle('hidden');
 
-        }else if (target.classList.contains("saveButton")) {
+        } else if (target.classList.contains("saveButton")) {
             const nameLabel = contact.querySelector('label:nth-of-type(1)');
             const emailLabel = contact.querySelector('label:nth-of-type(2)');
             const editNameInput = contact.querySelector('input[name="editName"]');
